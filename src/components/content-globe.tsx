@@ -195,7 +195,7 @@ export function Globe({ globeConfig, data }: WorldProps): React.ReactElement {
 
     // Load ThreeGlobe on the client side only
     useEffect(() => {
-        if (typeof window !== 'undefined' && !ThreeGlobeClass) {
+        if (typeof window !== 'undefined' ) {
             // Import ThreeGlobe dynamically
             import('three-globe').then(module => {
                 ThreeGlobeClass = module.default;
@@ -204,6 +204,22 @@ export function Globe({ globeConfig, data }: WorldProps): React.ReactElement {
                 setIsInitialized(true);
             });
         }
+        // Add this cleanup function
+        return () => {
+            if (globeRef.current) {
+                console.log("GLOBE CLEANUP IN PROGRESS")
+                // Dispose of the globe object
+                globeRef.current.ringsData([]); // Clear any rings
+                globeRef.current.arcsData([]); // Clear any arcs
+                globeRef.current.pointsData([]); // Clear any points
+                // Note: The ThreeGlobe object itself doesn't have a simple dispose method,
+                // but clearing its data helps. The real cleanup is at the Canvas level.
+
+                // This part is for clearing up the dynamic import reference
+                // to allow re-initialization
+                ThreeGlobeClass = null;
+            }
+        };
     }, []);
 
     useEffect(() => {
@@ -399,7 +415,7 @@ export function World(props: WorldProps) {
                 enableZoom={false}
                 minDistance={cameraZ}
                 maxDistance={cameraZ}
-                autoRotateSpeed={props.globeConfig.autoRotateSpeed || 1 }
+                autoRotateSpeed={props.globeConfig.autoRotateSpeed || 1}
                 autoRotate={true}
                 minPolarAngle={Math.PI / 3.5}
                 maxPolarAngle={Math.PI - Math.PI / 3}

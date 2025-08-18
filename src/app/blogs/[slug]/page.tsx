@@ -1,5 +1,6 @@
 // app/blog/[slug]/page.tsx
 
+import { headers } from 'next/headers';
 import type { Metadata } from "next";
 import BlogContent from "@/components/blogs/BlogContent"; // Import the new client component
 import Top_navbar_title from "@/components/Top_navbar_title";
@@ -33,8 +34,12 @@ interface BlogPostPageProps {
 
 // generateMetadata function - now with async params
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-    const { slug } = await params; // Add await here
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}`, {
+    const { slug } = await params;
+    const headersList = await headers();
+    const host = headersList.get('host');
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+
+    const res = await fetch(`${protocol}://${host}/api/blogs/${slug}`, {
         cache: "no-store",
     });
 
@@ -56,9 +61,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 // This is now a clean Server Component for data fetching
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params; // Add await here
+    const { slug } = await params; 
+    const headersList = await headers();
+    const host = headersList.get('host');
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}`, {
+     const res = await fetch(`${protocol}://${host}/api/blogs/${slug}`, {
         cache: "no-store",
     });
 
