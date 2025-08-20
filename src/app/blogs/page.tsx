@@ -4,16 +4,36 @@ import { supabase } from "@/lib/supabase";
 import { CircleAlertIcon, Calendar, Eye, Heart, ArrowRight, Clock, BookOpenTextIcon } from "lucide-react"
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { headers } from 'next/headers';
+
+export interface BlogsMetaData {
+    id: Number
+    title: string;
+    slug: string;
+    description: string;
+    featured_image: string;
+    views_count?: number;
+    likes_count?: number;
+    created_at?: string;
+    status?: string;
+}
 
 const BlogsPage = async () => {
-    // Only fetch the fields we need for the blog listing
-    const { data: blogs, error: fetchError } = await supabase
-        .from("Blogs")
-        .select("id, title, slug, description, featured_image, views_count, likes_count, created_at, status")
-        .eq("status", "published") // Only show published blogs
-        .order("created_at", { ascending: false });
+    const headersList = await headers();
+    const host = headersList.get('host');
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
 
-    if (fetchError) {
+    const res = await fetch(`${protocol}://${host}/api/blogs`, {
+        cache: "no-store",
+    });
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch blog");
+    }
+
+    const blogs: BlogsMetaData[] = await res.json();
+
+    if ( !blogs ) {
         return (
             <div className="flex flex-col items-center justify-center p-20 w-full min-h-screen">
                 <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-red-100">
@@ -57,7 +77,7 @@ const BlogsPage = async () => {
                 />
             </div>
 
-            <Navbar top_animation={false}/>
+            <Navbar top_animation={false} />
 
             {/* Hero Section */}
             <div className="z-20 relative">
@@ -78,7 +98,7 @@ const BlogsPage = async () => {
                 {blogs && blogs.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {blogs.map((blog) => (
-                            <article key={blog.id} className="group">
+                            <article key={String(blog.id)} className="group">
                                 <Link href={`/blogs/${blog.slug}`}>
                                     <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[#2530ff]/20 hover:-translate-y-2">
                                         {/* Featured Image */}
@@ -114,7 +134,7 @@ const BlogsPage = async () => {
                                             <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
                                                 <div className="flex items-center gap-1">
                                                     <Calendar className="w-3 h-3" />
-                                                    <span>{formatDate(blog.created_at)}</span>
+                                                    <span>{formatDate( typeof(blog.created_at) == "string" ? blog.created_at : "" )}</span>
                                                 </div>
                                                 <div className="flex items-center gap-1">
                                                     <Clock className="w-3 h-3" />

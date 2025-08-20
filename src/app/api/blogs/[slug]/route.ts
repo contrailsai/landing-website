@@ -8,8 +8,6 @@ type Blog = {
   [key: string]: any; // A fallback for other properties
 };
 
-// export const runtime = 'edge';
-
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
