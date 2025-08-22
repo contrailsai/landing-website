@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <>
-            <Top_navbar_title />
+            <Top_navbar_title show_links={true} />
             <article className="max-w-4xl mx-auto py-10 px-4">
                 {/* breadcrumb     */}
                 <div className="flex items-center gap-2 mb-5">

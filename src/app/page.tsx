@@ -5,6 +5,7 @@ import HeroPage from "@/components/sections/Hero_page";
 import Services_section from "@/components/sections/Services_section";
 import FeaturesSectionDemo from "@/components/sections/FeaturesSectionDemo";
 import How_It_Works from "@/components/sections/How_it_Works";
+import Recognitions from "@/components/sections/Recognitions";
 import Trusted_By from "@/components/sections/Trusted_by";
 import CTA_Section from "@/components/sections/CTA";
 import Footer from "@/components/Footer";
@@ -12,7 +13,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="">
-      <Top_navbar_title />
+      <Top_navbar_title show_links={false} />
       <Navbar top_animation={true} />
 
       {/* HERO PAGE */}
@@ -41,8 +42,10 @@ export default function Home() {
 
       <How_It_Works />
 
+      <Recognitions />
+
       {/* Trusted By Section */}
-      <Trusted_By />
+      {/* <Trusted_By /> */}
 
       {/* CTA Section */}
       <CTA_Section />

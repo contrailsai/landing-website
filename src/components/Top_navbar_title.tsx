@@ -4,8 +4,13 @@ import { motion } from "framer-motion"
 import DemoButton from "@/components/demo_button";
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import Link from "next/link";
 
-const Top_navbar_title = () => {
+interface NavbarProps {
+    show_links: boolean
+}
+
+const Top_navbar_title = ({ show_links }: NavbarProps) => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -27,7 +32,7 @@ const Top_navbar_title = () => {
             <></>
         )
     }
-    
+
     // Navigation
     return (
 
@@ -53,6 +58,25 @@ const Top_navbar_title = () => {
                     Contrails AI
                 </span>
             </motion.div>
+
+            {
+                show_links ?
+                    <div>
+                        <ul className="flex gap-4 text-lg">
+                            <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                                <Link href="/solutions">Solutions</Link>
+                            </li>
+                            <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                                <Link href="/blogs">Blogs</Link>
+                            </li>
+                            <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                                <Link href="/about">About</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    :
+                    <></>
+            }
 
             <motion.div
                 className="flex items-center gap-6"

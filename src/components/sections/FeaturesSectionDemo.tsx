@@ -11,14 +11,14 @@ import { div } from "framer-motion/client";
 import ScalabilitySection from "@/components/animated_media/card_scalability"
 import FastDetection from "@/components/animated_media/fast_detection"
 import Support247 from "../animated_media/Support_247";
+import Multimodal_deepfake_report from "../animated_media/MultiModel_deepfake_reports";
 
 export default function FeaturesSectionDemo() {
     const features = [
         {
-            title: "Instant AI-Powered Deepfake Reports",
-            description:
-                "Upload any media file and receive an in-depth AI analysis in moments — complete with confidence scores and forensic insights.",
-            skeleton: <ReportDemo />,
+            title: "Multi Modal Predicitons and reports",
+            description: "Uncover the full story behind every deepfake with multimodal analysis and explainable reports",
+            skeleton: <Multimodal_deepfake_report />,
             className:
                 "col-span-1 lg:col-span-4 border-b lg:border-r border-primary/20",
         },
@@ -106,7 +106,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
         <p
             className={`text-sm md:text-base text-left
                 text-neutral-500 font-normal
-                max-w-lg mx-0 my-2`}
+                 mx-0 my-2`}
         >
             {children}
         </p>

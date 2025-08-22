@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase"
 // TipTap
 import { EditorContent, useEditor, Editor } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
+
 import Image from "@tiptap/extension-image"
 import CodeBlock from "@tiptap/extension-code-block"
 import Blockquote from "@tiptap/extension-blockquote"
