@@ -16,6 +16,23 @@ export default function BlogContent({ blog }: BlogContentProps) {
     const [likes, setLikes] = useState(blog.likes_count ?? 0);
     const [isLiked, setIsLiked] = useState(false); // Prevent multiple clicks
 
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: blog.title,
+                    text: blog.description || "Check out this blog!",
+                    url: window.location.href,
+                });
+                console.log("Blog shared successfully");
+            } catch (err) {
+                console.error("Error sharing:", err);
+            }
+        } else {
+            alert("Sharing is not supported on this browser.");
+        }
+    };
+
     const handleLike = async () => {
         // Disable the button immediately
         setIsLiked(true);
@@ -83,7 +100,7 @@ export default function BlogContent({ blog }: BlogContentProps) {
                         <span className="px-4">
                             {read_time} min read
                         </span>
-                        
+
                         {blog.created_at && (
                             <span className="px-4">
                                 {date_to_show}
@@ -101,7 +118,11 @@ export default function BlogContent({ blog }: BlogContentProps) {
                         <div className="bg-gray-100 border border-gray-200 rounded-full px-2" >
                             <LikeButton />
                         </div>
-                        <div className="cursor-pointer bg-gray-100 rounded-full border border-gray-200 px-2 py-1.5" onClick={() => { console.log("YO") }}>
+                        <div
+                            className="cursor-pointer bg-gray-100 rounded-full border border-gray-200 px-2 py-1.5"
+                            onClick={handleShare}
+                            title="Share this blog"
+                        >
                             <Share2 className="stroke-emerald-500" />
                         </div>
                     </div>
@@ -139,9 +160,21 @@ export default function BlogContent({ blog }: BlogContentProps) {
             </div>
 
             {/* --- LIKE BUTTON AT THE BOTTOM --- */}
-            <div className="mt-10 pt-6 border-t mb-32">
-                <p className="text-lg font-semibold mb-3">Did you enjoy this post?</p>
-                <LikeButton />
+            <div className="mt-16 pt-10 border-t mb-32 flex justify-between items-center">
+                <p className="text-xl font-semibold mb-3">Did you enjoy this post?</p>
+
+                <div className="flex gap-5">
+                    <div className="bg-gray-100 border border-gray-200 rounded-full px-2" >
+                        <LikeButton />
+                    </div>
+                    <div
+                        className="cursor-pointer bg-gray-100 rounded-full border border-gray-200 px-2 py-1.5"
+                        onClick={handleShare}
+                        title="Share this blog"
+                    >
+                        <Share2 className="stroke-emerald-500" />
+                    </div>
+                </div>
             </div>
         </div>
     );
