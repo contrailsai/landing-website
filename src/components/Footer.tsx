@@ -5,8 +5,8 @@ import { WavyBackground } from "@/components/wavy-background"
 
 const Footer = () => {
     const footerLinks = [
-        { href: "/privacy-policy", label: "Privacy Policy" },
-        { href: "/terms-n-conditions", label: "Terms & Conditions" }
+        { href: "/#", label: "Privacy Policy" },
+        { href: "/#", label: "Terms & Conditions" }
     ]
 
     const socialLinks = [

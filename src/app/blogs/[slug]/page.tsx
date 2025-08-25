@@ -6,6 +6,7 @@ import BlogContent from "@/components/blogs/BlogContent"; // Import the new clie
 import Top_navbar_title from "@/components/Top_navbar_title";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import {Undo2} from "lucide-react";
 
 // You can export this type from here to be used in BlogContent
 export interface Blog {
@@ -61,30 +62,43 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 // This is now a clean Server Component for data fetching
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params; 
+    const { slug } = await params;
     const headersList = await headers();
     const host = headersList.get('host');
     const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
 
-     const res = await fetch(`${protocol}://${host}/api/blogs/${slug}`, {
+    const res = await fetch(`${protocol}://${host}/api/blogs/${slug}`, {
         cache: "no-store",
     });
 
     if (!res.ok) {
-        throw new Error("Failed to fetch blog");
+        console.error("Failed to fetch blog");
+
+        return (
+            <>
+                <Top_navbar_title show_links={true} />
+                <div className='p-20 flex flex-col items-center justify-center'>
+                    <div className='text-5xl font-bold'>Blog not found!</div>
+                    <Link href="/blogs" className='cursor-pointer bg-primary text-white flex items-center px-4 py-2 my-10 rounded-full shadow-md shadow-white hover:shadow-gray-400 transition-all'>
+                        Go back to Blogs
+                        <Undo2 className=" ml-2 size-6" />
+                    </Link>
+                </div>
+            </>
+        )
     }
 
     const blog: Blog = await res.json();
 
     return (
         <>
-            <Top_navbar_title />
+            <Top_navbar_title show_links={true} />
             <article className="max-w-4xl mx-auto py-10 px-4">
                 {/* breadcrumb     */}
                 <div className="flex items-center gap-2 mb-5">
                     <Link className="font-bold text-gray-600" href="/blogs">Blog</Link>
                     /
-                    <Link className="font-semibold text-gray-800" href={"/blogs/"+slug}>{slug}</Link>
+                    <Link className="font-semibold text-gray-800" href={"/blogs/" + slug}>{slug}</Link>
                 </div>
 
                 {/* Pass the server-fetched data to the client component */}

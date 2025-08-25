@@ -68,7 +68,7 @@ const Navbar = ({ top_animation }: NavbarProps) => {
                     <div>
                         <ul className="flex gap-2 text-xs">
                             <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                                <Link onClick={(event) => handleScroll(event, "services")} href="/#services">Services</Link>
+                                <Link href="/solutions">Solutions</Link>
                             </li>
                             <li className="cursor-pointer hover:opacity-70 transition-opacity">
                                 <Link href="/blogs">Blogs</Link>
@@ -138,9 +138,9 @@ const Navbar = ({ top_animation }: NavbarProps) => {
 
                 {/* Navigation Menu - always visible */}
                 <div>
-                    <ul className="flex gap-5 text-lg">
+                    <ul className="flex gap-4 text-lg">
                         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                            <Link onClick={(event) => handleScroll(event, "services")} href="/#services">Services</Link>
+                            <Link href="/solutions">Solutions</Link>
                         </li>
                         <li className="cursor-pointer hover:opacity-70 transition-opacity">
                             <Link href="/blogs">Blogs</Link>

@@ -36,8 +36,7 @@ const HeroPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                    Contrails AI provides cutting-edge solutions to detect manipulated media, misinformation, and harmful
-                    content across digital platforms.
+                    Detect deepfakes, misinformation, fraud, and harmful content at enterprise scale.
                 </motion.div>
 
                 <motion.span

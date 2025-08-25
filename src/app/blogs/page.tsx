@@ -67,7 +67,7 @@ const BlogsPage = async () => {
     return (
         <div className="relative min-h-screen bg-white">
             {/* Wavy Background */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 ">
                 <WavyBackground
                     className="z-0"
                     // colors={["#2530ff", "#2530ff", "#ffffff", "#ffffff"]}
@@ -82,7 +82,7 @@ const BlogsPage = async () => {
             {/* Hero Section */}
             <div className="z-20 relative">
                 <div className="bg-gradient-to-b from-primary via-white/40 to-white backdrop-blur-sm">
-                    <div className="px-6 sm:px-12 lg:px-20 py-16 sm:py-24">
+                    <div className="px-6 sm:px-12 lg:px-20 py-12 pb-16">
                         <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold text-black mb-4">
                             Our Blogs
                         </h1>
@@ -94,7 +94,7 @@ const BlogsPage = async () => {
             </div>
 
             {/* Blog Grid */}
-            <div className="relative z-10 px-6 sm:px-12 lg:px-20 py-12 bg-white">
+            <div className="relative z-10 min-h-screen px-6 sm:px-12 lg:px-20 py-12 bg-white">
                 {blogs && blogs.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {blogs.map((blog) => (
