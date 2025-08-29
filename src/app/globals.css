@@ -2,14 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #2530ff;
+  --color-primary: #0253ff;
   --color-secondary: #f3f5fe;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #2530ff;
+  --primary: #0253ff;
 }
 
 body {

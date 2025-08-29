@@ -70,11 +70,12 @@ const SolutionsPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-center lg:justify-end">
-                        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 relative w-full aspect-video">
+                    <div className="flex justify-center ">
+                        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6 relative max-w-72 w-full aspect-auto">
                             <Image
                                 src="/solutions/deepfake_detection.gif"
-                                fill
+                                width={278}
+                                height={338}
                                 alt="Deepfake detection visualization"
                                 className="rounded-2xl"
                             />
