@@ -1,9 +1,9 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
+import { Inter } from "next/font/google"
 
-const outfit = Outfit({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Contrails AI - AI Solutions for Digital Content Safety ",
@@ -88,7 +88,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <link rel="icon" href="/logo.svg" />
       </head>
-      <body className={outfit.className}>
+      <body className={inter.className}>
           {children}
       </body>
     </html>

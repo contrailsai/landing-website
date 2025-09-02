@@ -15,7 +15,7 @@ const Top_navbar_title = ({ show_links }: NavbarProps) => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 600);
+            setIsMobile(window.innerWidth < 768);
         };
 
         // Initial check
@@ -37,7 +37,7 @@ const Top_navbar_title = ({ show_links }: NavbarProps) => {
     return (
 
         <motion.nav
-            className="py-2 px-20 flex justify-between items-center relative"
+            className="py-2 px-5 md:px-10 lg:px-20 flex justify-between items-center relative"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -53,7 +53,7 @@ const Top_navbar_title = ({ show_links }: NavbarProps) => {
                     <Image alt="logo" src={"/logo.png"} fill />
                 </div>
                 <span
-                    className="font-outfit text-3xl font-bold text-primary"
+                    className="font-outfit text-2xl lg:text-3xl font-bold text-primary"
                 >
                     Contrails AI
                 </span>
@@ -62,7 +62,7 @@ const Top_navbar_title = ({ show_links }: NavbarProps) => {
             {
                 show_links ?
                     <div>
-                        <ul className="flex gap-4 text-lg">
+                        <ul className="flex gap-4 lg:text-base xl:text-lg ">
                             <li className="cursor-pointer hover:opacity-70 transition-opacity">
                                 <Link href="/solutions">Solutions</Link>
                             </li>
