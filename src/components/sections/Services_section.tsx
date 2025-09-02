@@ -165,26 +165,26 @@ const Services_section = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
-                        className="flex flex-col md:flex-row md:justify-evenly w-full gap-0 md:min-h-[600px]"
+                        className="flex flex-col lg:flex-row md:justify-evenly w-full gap-0 md:min-h-[600px]"
                     >
                         {/* Content Side */}
-                        <div className=" w-full flex flex-col justify-center p-4 lg:py-16 lg:pl-12 max-w-[90vw] md:max-w-fit">
+                        <div className=" w-full flex flex-col justify-start px-4 py-2 mb-2 lg:py-16 lg:pl-12 max-w-[90vw] md:max-w-fit">
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.2, duration: 0.5 }}
                             >
-                                <div className="mb-8 mt-2">
+                                <div className=" mb-2 mt-2">
                                     {/* <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r ${services[activeCard].color} text-white text-sm font-semibold mb-6`}>
                                             {services[activeCard].icon}
                                             {services[activeCard].subtitle}
                                         </div> */}
-                                    <h3 className="text-3xl text-center md:text-left md:text-4xl font-semibold text-slate-900  leading-tight">
+                                    <h3 className="text-3xl text-center md:text-left md:text-4xl mb-4 font-semibold text-slate-900 leading-tight">
                                         {services[activeCard].title}
                                     </h3>
                                 </div>
 
-                                <p className="text-slate-600 text-center md:text-left leading-relaxed text-lg md:text-xl text-pretty lg:max-w-96 ">
+                                <p className="text-slate-600 text-center md:text-left leading-relaxed text-base lg:text-lg text-balanced lg:max-w-96 ">
                                     {services[activeCard].description}
                                 </p>
 
@@ -192,7 +192,7 @@ const Services_section = () => {
                         </div>
 
                         {/* Visual Side - Clean GIF Display */}
-                        <div className=" py-10 px-5 flex items-center justify-center ">
+                        <div className="mb-4 px-5 flex items-center justify-center ">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}

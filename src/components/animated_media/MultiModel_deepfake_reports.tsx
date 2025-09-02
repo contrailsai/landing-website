@@ -7,42 +7,42 @@ const Multimodal_deepfake_report = () => {
             <div className="flex w-full justify-center items-end">
                 {/* LEFT */}
                 <div className="flex flex-col items-center">
-                    <div className="bg-primary h-20 w-20 rounded-3xl p-3">
+                    <div className="bg-emerald-400 h-20 w-20 rounded-3xl p-3">
                         <ImageIcon className="h-full w-full stroke-white" />
                     </div>
                     <div className="w-0.5 h-10 bg-primary" />
                     <div className=" w-full h-10">
-                        <div className=" w-[52%] h-[47%] relative left-[48%] border-b-3 border-l-3 border-primary rounded-bl-3xl" />
+                        <div className=" w-[51%] h-[45%] relative left-[49%] border-b-2 border-l-2 border-primary rounded-bl-3xl" />
                     </div>
                 </div>
 
-                <div className="h-6 w-32 border-t-3 border-primary" />
+                <div className="h-6 w-32 border-t-2 border-primary" />
 
                 {/* CENTER */}
                 <div className=" flex flex-col items-center">
-                    <div className="bg-primary h-20 w-20 rounded-3xl p-3">
+                    <div className="bg-rose-400 h-20 w-20 rounded-3xl p-3">
                         <AudioLines className="h-full w-full stroke-white" />
                     </div>
                     <div className="w-0.5 h-10 bg-primary" />
 
                     <div className=" w-full h-10 relative">
-                        <div className=" w-[2%] h-[40%] relative left-[48%] border-l-3 border-primary " />
-                        <div className="  w-full h-[2%] left-0 border-b-3 border-primary " />
+                        <div className=" w-[2%] h-[40%] relative left-[49%] border-l-2 border-primary " />
+                        <div className="  w-full h-[2%] left-0 border-b-2 border-primary " />
 
-                        <div className=" w-[2%] h-full relative left-[48%] border-l-3 border-primary " />
+                        <div className=" w-[2%] h-full relative left-[49%] border-l-2 border-primary " />
                     </div>
                 </div>
 
-                <div className="h-6 w-32 border-t-3 border-primary" />
+                <div className="h-6 w-32 border-t-2 border-primary" />
 
                 {/* RIGHT */}
                 <div className=" flex flex-col items-center">
-                    <div className="bg-primary h-20 w-20 rounded-3xl p-3">
+                    <div className="bg-cyan-400 h-20 w-20 rounded-3xl p-3">
                         <ClapperboardIcon className="h-full w-full stroke-white" />
                     </div>
                     <div className="w-0.5 h-10 bg-primary" />
                     <div className=" w-full h-10">
-                        <div className=" w-[51%] h-[47%] relative border-b-3 border-r-3 border-primary rounded-br-3xl overflow-hidden" />
+                        <div className=" w-[51%] h-[45%] relative border-b-2 border-r-2 border-primary rounded-br-3xl overflow-hidden" />
                     </div>
                 </div>
             </div>

@@ -73,7 +73,7 @@ function SocialPost() {
                 </div>
                 <div className="flex items-center gap-2">
                     <MessageCircle className="w-5 h-5" />
-                     <span className="text-sm font-medium text-gray-600">345</span>
+                    <span className="text-sm font-medium text-gray-600">345</span>
                 </div>
                 <Share2 className="w-5 h-5" />
             </div>
@@ -161,7 +161,7 @@ function AnalysisResults({ categories }: { categories: Category[] }) {
 // (No changes needed, this component is perfect)
 function AnalysisLoader() {
     const SkeletonBar = () => <div className="w-full h-8 bg-white/10 rounded-full animate-pulse" />;
-    
+
     return (
         <div className="w-full h-full flex flex-col items-center justify-center gap-4">
             <h3 className="text-lg font-semibold text-white mb-2">Analyzing Content...</h3>
@@ -192,7 +192,7 @@ export default function SmartContentFilter() {
                 setIsLoading(false);
             }, 2000); // 2-second loading time
         };
-        
+
         runCycle(0); // Kick off the first cycle on mount
 
         const cycleInterval = setInterval(() => {
@@ -207,11 +207,11 @@ export default function SmartContentFilter() {
     }, []); // Empty dependency array ensures this effect runs only ONCE
 
     return (
-        <div className=" h-full flex items-center justify-center">
+        <div className="h-full flex flex-col md:flex-row items-center justify-center gap-6 p-4">
             <SocialPost />
 
-            {/* --- Animated Connector (Updated Colors) --- */}
-            <div className="w-16 md:w-24 h-1 mx-4 bg-gray-200 rounded-full overflow-hidden relative">
+            {/* Connector */}
+            <div className="hidden md:block w-16 lg:w-24 h-1 bg-gray-200 rounded-full overflow-hidden relative">
                 <AnimatePresence>
                     {isLoading && (
                         <motion.div
@@ -219,17 +219,20 @@ export default function SmartContentFilter() {
                             initial={{ x: "-100%" }}
                             animate={{ x: "100%" }}
                             exit={{ x: "100%", opacity: 0 }}
-                            transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+                            transition={{
+                                duration: 1.5,
+                                ease: "easeInOut",
+                                repeat: Infinity,
+                                repeatType: "loop",
+                            }}
                         />
                     )}
                 </AnimatePresence>
-                {!isLoading && (
-                     <div className="w-full h-full bg-teal-400" />
-                )}
+                {!isLoading && <div className="w-full h-full bg-teal-400" />}
             </div>
 
-            {/* --- Analysis Results Panel (Updated styles) --- */}
-            <div className="w-72 h-[320px] bg-blue-600 rounded-3xl p-6 flex flex-col justify-center text-white relative overflow-hidden">
+            {/* Analysis Panel */}
+            <div className="w-full sm:w-80 md:w-72 h-auto bg-blue-600 rounded-3xl p-6 flex flex-col justify-center text-white relative overflow-hidden">
                 <AnimatePresence mode="wait">
                     {isLoading ? (
                         <motion.div
@@ -243,7 +246,7 @@ export default function SmartContentFilter() {
                         </motion.div>
                     ) : (
                         <motion.div
-                            key={scenarioIndex} 
+                            key={scenarioIndex}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
@@ -255,4 +258,5 @@ export default function SmartContentFilter() {
             </div>
         </div>
     );
+
 }

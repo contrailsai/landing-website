@@ -474,7 +474,7 @@ export function ContentGlobe() {
     };
 
     return (
-        <div className=" absolute top-0 -left-1/2 lg:left-1/4 2xl:left-1/3 md:scale-110 ">
+        <div className=" absolute top-0 -left-4/5 sm:-left-1/4 lg:left-1/4 2xl:left-1/3 scale-90 md:scale-110  ">
             <div className=" w-[1200px] h-[1000px] ">
                 <World globeConfig={globeConfig} data={sampleData} />
             </div>

@@ -17,8 +17,8 @@ const HeroPage = () => {
     return (
         <section id="home" className=" overflow-hidden h-[110vh] px-5 md:px-20 py-10 flex flex-col md:flex-row items-center justify-between relative">
 
-            <div className=" md:min-w-xl top-24 md:-top-32 relative z-30">
-                <h1 className="text-3xl font-semibold">
+            <div className=" text-center md:text-left  md:min-w-xl top-24 md:-top-32 relative z-30">
+                <h1 className=" text-2xl md:text-3xl font-bold">
                     <motion.span
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ const HeroPage = () => {
                 </h1>
 
                 <motion.div
-                    className=" text-sm md:text-lg px-2 md:px-0 my-6 text-gray-700 font-outfit max-w-xl"
+                    className=" text-sm md:text-lg md:px-0 my-6 text-gray-700 font-outfit max-w-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
@@ -43,6 +43,7 @@ const HeroPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
+                    className="w-full flex items-center justify-center md:justify-start "
                 >
                     <DemoButton onClick={() => window.open("https://cal.com/ami-contrails/", "_blank")} />
                 </motion.span>
@@ -52,7 +53,7 @@ const HeroPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className=" top-64 md:top-0  absolute h-full w-full "
+                className=" top-64 lg:top-0  absolute h-full w-full "
             >
                 <ContentGlobe />
             </motion.div>
