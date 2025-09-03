@@ -5,6 +5,9 @@ import DemoButton from "@/components/demo_button";
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link";
+import { Outfit } from "next/font/google"
+
+const outfit = Outfit({ subsets: ["latin"] })
 
 interface NavbarProps {
     show_links: boolean
@@ -53,7 +56,7 @@ const Top_navbar_title = ({ show_links }: NavbarProps) => {
                     <Image alt="logo" src={"/logo.png"} fill />
                 </div>
                 <span
-                    className="font-outfit text-2xl lg:text-3xl font-bold text-primary"
+                    className={` ${outfit.className} text-2xl lg:text-3xl font-bold text-primary`}
                 >
                     Contrails AI
                 </span>

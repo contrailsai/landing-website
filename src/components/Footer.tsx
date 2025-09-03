@@ -2,6 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { WavyBackground } from "@/components/wavy-background"
+import { Outfit } from "next/font/google"
+
+const outfit = Outfit({ subsets: ["latin"] })
 
 const Footer = () => {
     const footerLinks = [
@@ -59,7 +62,7 @@ const Footer = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <span className="font-outfit text-xl md:text-4xl text-primary font-bold">
+                            <span className={` ${outfit.className} text-xl md:text-4xl text-primary font-bold`}>
                                 Contrails AI
                             </span>
                         </div>
