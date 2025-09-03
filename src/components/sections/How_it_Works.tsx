@@ -60,13 +60,18 @@ const How_It_Works = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-                    Is it human-made or AI-crafted? <br /> Our analysis reveals the truth.
+                <h2 className="font-bold text-slate-900 tracking-tight flex flex-col gap-4">
+                    <span className=" font-bold text-balance text-4xl md:text-4xl lg:text-5xl ">
+                        Is it human-made or AI-crafted?
+                    </span>
+                    <span className=" font-semibold text-2xl md:text-2xl lg:text-3xl ">
+                        Our analysis reveals the truth.
+                    </span>
                 </h2>
-                <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal">
-                    {/* <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed"> */}
-                    How it works?
-                </p>
+                {/* <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal"> */}
+                {/* <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed"> */}
+                {/* How it works? */}
+                {/* </p> */}
             </motion.div>
 
             {/* Sticky Content */}
