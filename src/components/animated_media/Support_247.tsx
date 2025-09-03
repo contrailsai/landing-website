@@ -17,9 +17,7 @@ const Support247 = () => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col items-center justify-end gap-4 pb-28 ${
-        isHovered ? "hovering" : ""
-      }`}
+      className={`w-full h-96 flex flex-col items-center justify-end gap-4 pb-28 `}
     >
       {/* user chat */}
       <div className="flex gap-3 w-full justify-end">
@@ -39,7 +37,7 @@ const Support247 = () => {
 
       {/* support chat */}
       <div className="flex w-full justify-start">
-        <div className="flex gap-3">
+        <div className="flex gap-3 ">
           <div className="flex items-end">
             <div className="p-3 bg-primary rounded-full relative">
               <HeadsetIcon className="text-white" />

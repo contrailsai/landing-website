@@ -122,7 +122,7 @@ const Navbar = ({ top_animation }: NavbarProps) => {
             transition={{ duration: 0.5 }}
         >
             <motion.div
-                className={`absolute flex justify-center items-center gap-10 ${isScrolled ? " lg:min-w-[530px] backdrop-blur bg-white/30 " : " backdrop-blur-none lg:min-w-[530px] xl:min-w-[530px] bg-transparent"}  rounded-full px-5 py-1 transition-all`}
+                className={`absolute flex justify-center items-center gap-10 ${(!top_animation || isScrolled) ? " lg:min-w-[530px] backdrop-blur bg-white/30 " : " backdrop-blur-none lg:min-w-[530px] xl:min-w-[530px] bg-transparent"}  rounded-full px-5 py-1 transition-all`}
                 animate={{
                     boxShadow: isScrolled
                         ? "0 4px 6px -1px rgba(37, 48, 255, 0.1), 0 2px 4px -1px rgba(37, 48, 255, 0.06)"
@@ -176,7 +176,7 @@ const Navbar = ({ top_animation }: NavbarProps) => {
 
                 {/* Demo Button - slides in from right */}
                 <motion.div
-                    className="flex items-center gap-6 overflow-hidden "
+                    className="flex items-center gap-6 overflow-hidden"
                     initial={top_animation ? { x: 50, opacity: 0, scale: 0.8, maxWidth: 80, width: 80 } : { y: -10, opacity: 0, scale: 0.8 }}
                     animate={top_animation ?
                         {
@@ -199,7 +199,7 @@ const Navbar = ({ top_animation }: NavbarProps) => {
                         damping: 20
                     }}
                 >
-                    <div className="w-56 h-12">
+                    <div className="w-[175px] h-12">
                         <DemoButton type="1" onClick={() => window.open("https://cal.com/ami-contrails/", "_blank")} />
                     </div>
                 </motion.div>
